@@ -1,0 +1,43 @@
+{
+  "name": "roots-scheduler",
+  "version": "0.0.0",
+  "description": "A scheduler using RootsDB for its storage.",
+  "main": "lib/Scheduler.js",
+  "engines": {
+    "node": ">=14.15.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "tea-time -R dot -O"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cronvel/roots-scheduler.git"
+  },
+  "keywords": [
+    "scheduler"
+  ],
+  "author": "Cédric Ronvel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cronvel/roots-scheduler/issues"
+  },
+  "config": {
+    "tea-time": {
+      "coverDir": [
+        "lib"
+      ]
+    }
+  },
+  "copyright": {
+    "title": "Roots Scheduler",
+    "years": [
+      2020,
+      2021
+    ],
+    "owner": "Cédric Ronvel"
+  }
+}

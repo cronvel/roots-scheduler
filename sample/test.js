@@ -5,12 +5,15 @@
 
 
 const Scheduler = require( '..' ) ;
+const Promise = require( 'seventh' ) ;
 
 
 
 var runners = {
-	mail: data => {
-		console.log( "Mail: " , data ) ;
+	mail: async ( data ) => {
+		console.log( ">>> Mail: " , data ) ;
+		await Promise.resolveTimeout( 4000 ) ;
+		console.log( "<<< Mailed: " , data ) ;
 	}
 } ;
 
@@ -23,7 +26,7 @@ var scheduler = new Scheduler( {
 
 async function run() {
 	await scheduler.start() ;
-	scheduler.addJob( { runner: 'mail' , at: Date.now() + 1000 , data: { to: 'bob@bob.com' } } ) ;
+	scheduler.addJob( { runner: 'mail' , scheduledFor: Date.now() + 4000 , data: { to: 'bob@bob.com' } } ) ;
 }
 
 run() ;

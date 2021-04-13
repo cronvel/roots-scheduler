@@ -10,10 +10,21 @@ const Promise = require( 'seventh' ) ;
 
 
 var runners = {
-	mail: async ( data ) => {
+	mail: async ( data , job ) => {
 		console.log( ">>> Mail: " , data ) ;
-		await Promise.resolveTimeout( 4000 ) ;
+		job.debug( "Start at %s" , new Date() ) ;
+		await Promise.resolveTimeout( 2000 ) ;
+		job.info( "Middle at %s" , new Date() ) ;
+		await Promise.resolveTimeout( 2000 ) ;
+		job.verbose( "Done at %s" , new Date() ) ;
 		console.log( "<<< Mailed: " , data ) ;
+	} ,
+	error: async ( data , job ) => {
+		console.log( ">>> Error runner: " , data ) ;
+		await Promise.resolveTimeout( 2000 ) ;
+		var error = new Error( "Dang!" ) ;
+		job.error( "Error: %E" , error ) ;
+		throw error ;
 	}
 } ;
 
@@ -26,7 +37,8 @@ var scheduler = new Scheduler( {
 
 async function run() {
 	await scheduler.start() ;
-	scheduler.addJob( { runner: 'mail' , scheduledFor: Date.now() + 4000 , data: { to: 'bob@bob.com' } } ) ;
+	scheduler.addJob( { runner: 'mail' , scheduledFor: Date.now() + 500 , data: { to: 'bill@bill.com' } } ) ;
+	scheduler.addJob( { runner: 'error' , scheduledFor: Date.now() + 4000 } ) ;
 }
 
 run() ;

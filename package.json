@@ -1,18 +1,18 @@
 {
   "name": "roots-scheduler",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "A scheduler using RootsDB for its storage.",
   "main": "lib/Scheduler.js",
   "engines": {
-    "node": ">=14.15.0"
+    "node": ">=16.13.0"
   },
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "logfella": "^1.4.3",
+    "logfella": "^2.0.1",
     "nextgen-events": "^1.5.3",
-    "roots-db": "^0.37.0",
+    "roots-db": "^0.38.0",
     "seventh": "^0.8.2"
   },
   "scripts": {

@@ -1,10 +1,10 @@
 {
   "name": "roots-scheduler",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A scheduler using RootsDB for its storage.",
   "main": "lib/Scheduler.js",
   "engines": {
-    "node": ">=16.13.0"
+    "node": ">=16.20.1"
   },
   "directories": {
     "test": "test"
